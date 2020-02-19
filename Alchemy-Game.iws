@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f1083ca6-6519-4715-a3fe-64831357b791" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/main/MapFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/layout/content_map.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/layout/fragment_map2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/main/SectionsPagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/main/SectionsPagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +28,9 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/AlchemyGame">
       <ProjectState />
     </projectState>
@@ -20,12 +38,19 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/AlchemyGame/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Alchemy Game" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Alchemy-Game" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -37,25 +62,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
   <component name="ProjectId" id="1Y0BosuCNj8oHhRaLLLsoVgBe7T" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
+  <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="com.example.alchemygame" />
+      <recent name="com.example.alchemygame.ui.main" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirst\OneDrive\Documents\GitHub\Alchemy-Game\AlchemyGame" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -97,17 +135,74 @@
       <option name="presentableId" value="Default" />
       <updated>1581525723671</updated>
     </task>
+    <task id="LOCAL-00001" summary="Working?">
+      <created>1582072138270</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582072138271</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Working?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working?" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="277" y="56" key="SettingsEditor" timestamp="1582072075383">
+    <state x="496" y="126" key="#app" timestamp="1582072461227">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582072075383" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582069820848">
+    <state x="496" y="126" key="#app/0.0.1536.824@0.0.1536.824" timestamp="1582072461227" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582075123470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582069820848" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1582075123470" />
+    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1582075465966">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1582075465966" />
+    <state width="1493" height="138" key="GridCell.Tab.0.bottom" timestamp="1582075214437">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="138" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582075214437" />
+    <state width="1493" height="138" key="GridCell.Tab.0.center" timestamp="1582075214437">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="138" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582075214437" />
+    <state width="1493" height="138" key="GridCell.Tab.0.left" timestamp="1582075214437">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="138" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582075214437" />
+    <state width="1493" height="138" key="GridCell.Tab.0.right" timestamp="1582075214437">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="138" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582075214437" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1582074476351">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582074476351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1582074476351">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582074476351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1582074476351">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582074476351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1582074476351">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582074476351" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1582072284904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582072284904" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1582072428941">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1582072428941" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1582069908035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
