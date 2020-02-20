@@ -148,7 +148,7 @@
       <module fileurl="file://$PROJECT_DIR$/AlchemyGame/app/app.iml" filepath="$PROJECT_DIR$/AlchemyGame/app/app.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="RemoteRepositoriesConfiguration">
@@ -171,6 +171,11 @@
       <option name="id" value="Google" />
       <option name="name" value="Google" />
       <option name="url" value="https://dl.google.com/dl/android/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="MavenRepo" />
+      <option name="name" value="MavenRepo" />
+      <option name="url" value="https://repo.maven.apache.org/maven2/" />
     </remote-repository>
   </component>
   <component name="VcsDirectoryMappings">
@@ -729,6 +734,114 @@
       </CLASSES>
       <JAVADOC />
       <SOURCES />
+    </library>
+    <library name="Gradle: com.google.code.gson:gson:2.8.5@jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/f645ed69d595b24d4cf8b3fbb64cc505bede8829/gson-2.8.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/a2841d93c258a70e320be81586e92208a60144f2/gson-2.8.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/c5b4c491aecb72e7c32a78da0b5c6b9cda8dee0f/gson-2.8.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-accounts:0.2.0@aar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6438738bafd5ccb1b598c0234c6e956/jetified-mapbox-android-accounts-0.2.0/jars/classes.jar!/" />
+        <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6438738bafd5ccb1b598c0234c6e956/jetified-mapbox-android-accounts-0.2.0/res" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-accounts/0.2.0/cfc9d720954aee2717add35f63daa8ede2faa183/mapbox-android-accounts-0.2.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES />
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-core:1.3.0@aar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bd89a282bc63038fd63325d39c6f813/jetified-mapbox-android-core-1.3.0/jars/classes.jar!/" />
+        <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bd89a282bc63038fd63325d39c6f813/jetified-mapbox-android-core-1.3.0/res" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-core/1.3.0/ab614b4ade43489d61a7fff15dc876c932bf8de3/mapbox-android-core-1.3.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-core/1.3.0/fedf0bbf6c173a2989d8f460e768baccfaf036f9/mapbox-android-core-1.3.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-gestures:0.5.1@aar">
+      <ANNOTATIONS>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5de79ff3494894492f6aad0db302bc0/jetified-mapbox-android-gestures-0.5.1/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5de79ff3494894492f6aad0db302bc0/jetified-mapbox-android-gestures-0.5.1/jars/classes.jar!/" />
+        <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5de79ff3494894492f6aad0db302bc0/jetified-mapbox-android-gestures-0.5.1/res" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-gestures/0.5.1/c7ee2d4de1836a1e68f364f6df19169df1db363a/mapbox-android-gestures-0.5.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-gestures/0.5.1/1504156ae1371e6ceec534b00642f0fad8ae4b4f/mapbox-android-gestures-0.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.2@aar">
+      <ANNOTATIONS>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1292ebafccdcdf67c4d23fc2ee0a8c/jetified-mapbox-android-sdk-8.6.2/annotations.zip!/" />
+      </ANNOTATIONS>
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1292ebafccdcdf67c4d23fc2ee0a8c/jetified-mapbox-android-sdk-8.6.2/jars/classes.jar!/" />
+        <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4e1292ebafccdcdf67c4d23fc2ee0a8c/jetified-mapbox-android-sdk-8.6.2/res" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/8.6.2/20575865e63a82c8634c066c0389d7b657794dcf/mapbox-android-sdk-8.6.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-sdk/8.6.2/446e3820bc4b23eb772a2e4997654702ae959c79/mapbox-android-sdk-8.6.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1@aar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51ebaeadced7a62248f4411f2cfd8252/jetified-mapbox-android-telemetry-4.5.1/jars/classes.jar!/" />
+        <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51ebaeadced7a62248f4411f2cfd8252/jetified-mapbox-android-telemetry-4.5.1/res" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-telemetry/4.5.1/8e69150edb13ad94a7b53228dbdc4c1f5cfb74b2/mapbox-android-telemetry-4.5.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-telemetry/4.5.1/75ee83e434b2bf99fa0500a37f076dd0a1845cf2/mapbox-android-telemetry-4.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.mapbox.mapboxsdk:mapbox-sdk-geojson:4.9.0@jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-geojson/4.9.0/6505c7845faa6955b10b69da2541c5f78dcc5e17/mapbox-sdk-geojson-4.9.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-geojson/4.9.0/374023afb056cd20304cc85faee5c57f656b5364/mapbox-sdk-geojson-4.9.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-sdk-geojson/4.9.0/2a995394dfd2fb5199e302d7e96e51af7dcee115/mapbox-sdk-geojson-4.9.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.squareup.okhttp3:okhttp:3.12.3@jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.3/4a1c4c7b89298e7a00e83e4b3bc75af9cc6307f1/okhttp-3.12.3.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.3/bce8046b48c8eff5c61aebd688945f2890fb1d16/okhttp-3.12.3-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.3/b0cd2bea93403f7d5b09ee8d5c48eabebf65cf69/okhttp-3.12.3-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: com.squareup.okio:okio:1.15.0@jar">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.15.0/bc28b5a964c8f5721eb58ee3f3c47a9bcbf4f4d8/okio-1.15.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.15.0/a504577b8e4cfecd3e4148a697faf9742c767180/okio-1.15.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.15.0/5667938926bdda03add0eac8c522164ce4180e5e/okio-1.15.0-sources.jar!/" />
+      </SOURCES>
     </library>
     <library name="Gradle: com.squareup:javawriter:2.1.1@jar">
       <CLASSES>

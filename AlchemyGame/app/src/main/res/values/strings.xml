@@ -9,4 +9,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mapbox_access_token">
+        pk.eyJ1Ijoic2lyc3RlZWxlOTciLCJhIjoiY2s2c25sMHJiMDM5ZjNmcXFuaXdteXBpZCJ9.rJrQ8DHzX-R_MHKw3cSTrA
+    </string>
 </resources>
