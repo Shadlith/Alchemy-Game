@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             mapbox:mapbox_cameraTargetLat="39.983334"
             mapbox:mapbox_cameraTargetLng="-82.983330"
-            mapbox:mapbox_cameraZoom="20"/>
+            mapbox:mapbox_cameraZoom="11"/>
 
     <TextView
         android:id="@+id/section_label"
