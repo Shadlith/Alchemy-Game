@@ -17,7 +17,7 @@ import com.example.alchemygame.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{ R.string.tab_text_2, R.string.tab_text_3, R.string.tab_text_4, R.string.tab_text_5, R.string.tab_text_6};
+    private static final int[] TAB_TITLES = new int[]{ R.string.MapText, R.string.InventoryText, R.string.StoreText, R.string.CraftText, R.string.StatsText};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
