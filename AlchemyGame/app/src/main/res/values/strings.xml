@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Alchemy Game</string>
-    <string name="tab_text_2">Map</string>
-    <string name="tab_text_3">Inventory</string>
-    <string name="tab_text_4">Store</string>
-    <string name="tab_text_5">Craft</string>
-    <string name="tab_text_6">Stats</string>
+    <string name="MapText">Map</string>
+    <string name="InventoryText">Inventory</string>
+    <string name="StoreText">Store</string>
+    <string name="CraftText">Craft</string>
+    <string name="StatsText">Stats</string>
     <string name="title_activity_map">MapActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
