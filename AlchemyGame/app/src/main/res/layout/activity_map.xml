@@ -4,11 +4,16 @@
              android:layout_height="match_parent"
              xmlns:mapbox="http://schemas.android.com/apk/res-auto"
              android:orientation="vertical">
-
+    <Button
+            android:text="Back to Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button4"/>
     <com.mapbox.mapboxsdk.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             mapbox:mapbox_cameraZoom="12"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+    </com.mapbox.mapboxsdk.maps.MapView>
 
 </FrameLayout>

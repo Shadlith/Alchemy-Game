@@ -16,4 +16,5 @@
         this app!
     </string>
     <string name="user_location_permission_not_granted">Sorry then you cannot play!</string>
+    <string name="new_location"/>
 </resources>
