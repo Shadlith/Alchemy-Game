@@ -2,6 +2,8 @@ package com.example.alchemygame;
 
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import android.widget.Toast;
 import com.example.alchemygame.LocationGenerator.LocationGenerator;
+import com.example.alchemygame.Model.Database;
 import com.mapbox.android.core.location.*;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
@@ -23,9 +26,8 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
-import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
-import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
+import com.mapbox.mapboxsdk.plugins.annotation.*;
+import com.mapbox.mapboxsdk.utils.ColorUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -48,7 +50,8 @@ public class LocationComponentActivity extends AppCompatActivity implements
         private LocationEngine locationEngine;
         private LocationChangeListeningActivityLocationCallback callback =
                 new LocationChangeListeningActivityLocationCallback(this);
-        private SymbolManager symbolManager;
+        private CircleManager circleManager;
+        private Database db;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -59,7 +62,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
 
 // This contains the MapView in XML and needs to be called after the access token is configured.
             setContentView(R.layout.activity_map);
-
+            db = new Database(getApplicationContext());
             mapView = findViewById(R.id.mapView);
             mapView.onCreate(savedInstanceState);
             mapView.getMapAsync(this);
@@ -72,14 +75,33 @@ public class LocationComponentActivity extends AppCompatActivity implements
             mapboxMap.setStyle(Style.OUTDOORS,
                     new Style.OnStyleLoaded() {
                         @Override public void onStyleLoaded(@NonNull Style style) {
+
+                            circleManager = new CircleManager(mapView, mapboxMap, style);
                             enableLocationComponent(style);
+                            LocationGenerator lg = new LocationGenerator();
+                            List<Location> points = new ArrayList<Location>();
 
-                            symbolManager = new SymbolManager(mapView, mapboxMap, style);
+                            if(db.getLocations().size() > 0){
+                                points = db.getLocations();
+                            }else{
+                                points = lg.GenerateLocations(5, callback.getLocation());
+                            }
+                            List<CircleOptions> circleOptionsList = new ArrayList<>();
+                            for(int i = 0; i < points.size() -1; i++){
+                                if(db.getLocations().size() > 0){
+                                    db.addLocation(points.get(i).getLatitude(),points.get(i).getLatitude());
+                                }
 
-                            symbolManager.setIconAllowOverlap(true);
-                            symbolManager.setIconIgnorePlacement(true);
+                                // random add circles across the globe
+                                circleOptionsList.add(new CircleOptions()
+                                        .withLatLng(new LatLng(points.get(i).getLatitude(), points.get(i).getLongitude()))
+                                        .withCircleColor(ColorUtils.colorToRgbaString(255))
+                                        .withCircleRadius(16f)
+                                );
+                                Log.d("Location" + i, points.get(i).getLatitude() + " ,"+ points.get(i).getLongitude());
 
-
+                            }
+                            circleManager.create(circleOptionsList);
                         }
                     });
 
@@ -137,15 +159,6 @@ public class LocationComponentActivity extends AppCompatActivity implements
             locationEngine.requestLocationUpdates(request, callback, getMainLooper());
             locationEngine.getLastLocation(callback);
 
-            LocationGenerator lg = new LocationGenerator();
-            List<Location> points = lg.GenerateLocations(5, callback.getLocation());
-
-            for(int i = 0; i < points.size() -1; i++){
-                Symbol symbol = symbolManager.create(new SymbolOptions()
-                        .withLatLng(new LatLng(points.get(i).getLatitude(), points.get(i).getLongitude()))
-                        .withIconSize(2.0f));
-                Log.d("Location" + i, points.get(i).getLatitude() + " ,"+ points.get(i).getLongitude());
-            }
         }
 
         @Override
@@ -195,7 +208,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
 
                 if (activity != null) {
                     Location location = result.getLastLocation();
-
+                    CurrentLocation = result.getLastLocation();
                     if (location == null) {
                         return;
                     }

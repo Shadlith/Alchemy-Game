@@ -2,8 +2,10 @@ package com.example.alchemygame.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Location;
 
 import java.util.ArrayList;
 
@@ -58,6 +60,33 @@ public class Database extends SQLiteOpenHelper {
         values.put("Long", longitude);
 
         db.insert(Location_table, null, values);
+        return true;
+    }
+
+    public ArrayList<Location> getLocations() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Location> array_list = new ArrayList<Location>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Location", null);
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            Location loc = new Location("");
+            loc.setLatitude(Double.parseDouble(res.getString(res.getColumnIndex("Lang"))));
+            loc.setLongitude(Double.parseDouble(res.getString(res.getColumnIndex("Long"))));
+
+            array_list.add(loc);
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
+    public boolean deleteLocation(double latitude, double longitude) {
+        String[] vals = new String[2];
+        vals[0] = String.valueOf(latitude);
+        vals[0] = String.valueOf(longitude);
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Location_table, null, vals);
+
         return true;
     }
 
