@@ -3,6 +3,7 @@ package com.example.alchemygame;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
@@ -16,6 +17,10 @@ import com.example.alchemygame.Model.Database;
 import com.mapbox.android.core.location.*;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.FeatureCollection;
+import com.mapbox.geojson.GeoJson;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -27,6 +32,10 @@ import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.mapboxsdk.plugins.annotation.*;
+import com.mapbox.mapboxsdk.style.layers.CircleLayer;
+import com.mapbox.mapboxsdk.style.layers.Layer;
+import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
+import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 import com.mapbox.mapboxsdk.utils.ColorUtils;
 
 import java.lang.ref.WeakReference;
@@ -52,6 +61,8 @@ public class LocationComponentActivity extends AppCompatActivity implements
                 new LocationChangeListeningActivityLocationCallback(this);
         private CircleManager circleManager;
         private Database db;
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -68,6 +79,36 @@ public class LocationComponentActivity extends AppCompatActivity implements
             mapView.getMapAsync(this);
         }
 
+    @Override
+    public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+        this.mapboxMap = mapboxMap;
+        
+        mapboxMap.setStyle(Style.OUTDOORS,
+                new Style.OnStyleLoaded() {
+                    @Override public void onStyleLoaded(@NonNull Style style) {
+                        enableLocationComponent(style);
+
+                        LocationGenerator lg = new LocationGenerator();
+                        List<Location> points = new ArrayList<Location>();
+
+                        if (db.getLocations().size() > 0) {
+                            points = db.getLocations();
+                        } else {
+                            points = lg.GenerateLocations(5, callback.getLocation());
+                        }
+                        final List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                        for(int i = 0; i< points.size(); i++){
+                            symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                                    Point.fromLngLat(points.get(i).getLongitude(), points.get(i).getLatitude())));
+                        }
+
+                        style.addSource(new GeoJsonSource("SOURCE_ID",
+                                FeatureCollection.fromFeatures(symbolLayerIconFeatureList)));
+                        style.addLayer(new CircleLayer("LAYER_ID", "SOURCE_ID"));
+                    }
+                });
+    }
+/*
         @Override
         public void onMapReady(@NonNull final MapboxMap mapboxMap) {
             this.mapboxMap = mapboxMap;
@@ -96,19 +137,20 @@ public class LocationComponentActivity extends AppCompatActivity implements
                                 circleOptionsList.add(new CircleOptions()
                                         .withLatLng(new LatLng(points.get(i).getLatitude(), points.get(i).getLongitude()))
                                         .withCircleColor(ColorUtils.colorToRgbaString(255))
-                                        .withCircleRadius(16f)
+                                        .withCircleRadius(10000f)
                                 );
                                 Log.d("Location" + i, points.get(i).getLatitude() + " ,"+ points.get(i).getLongitude());
 
                             }
                             circleManager.create(circleOptionsList);
+                            SymbolLayer sl = new SymbolLayer();
                         }
                     });
 
 
 
-        }
 
+*/
         /**
          * Initialize the Maps SDK's LocationComponent
          */
