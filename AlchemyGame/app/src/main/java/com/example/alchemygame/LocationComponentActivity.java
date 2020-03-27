@@ -53,27 +53,28 @@ public class LocationComponentActivity extends AppCompatActivity implements
 
     List points = new ArrayList();
 
-    private MapboxMap mapboxMap;
-        private MapView mapView;
+        private MapboxMap mapboxMap;
+        public MapView mapView;
         private PermissionsManager permissionsManager;
         private LocationEngine locationEngine;
         private LocationChangeListeningActivityLocationCallback callback =
                 new LocationChangeListeningActivityLocationCallback(this);
-        private CircleManager circleManager;
-        private Database db;
+        public Database db;
+        public LocationGenerator lg;
 
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
-// Mapbox access token is configured here. This needs to be called either in your application
-// object or in the same activity which contains the mapview.
+            lg = new LocationGenerator();
+            // Mapbox access token is configured here. This needs to be called either in your application
+            // object or in the same activity which contains the mapview.
             Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
 
-// This contains the MapView in XML and needs to be called after the access token is configured.
+            // This contains the MapView in XML and needs to be called after the access token is configured.
             setContentView(R.layout.activity_map);
             db = new Database(getApplicationContext());
+
             mapView = findViewById(R.id.mapView);
             mapView.onCreate(savedInstanceState);
             mapView.getMapAsync(this);
@@ -82,19 +83,22 @@ public class LocationComponentActivity extends AppCompatActivity implements
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;
-        
+
         mapboxMap.setStyle(Style.OUTDOORS,
                 new Style.OnStyleLoaded() {
                     @Override public void onStyleLoaded(@NonNull Style style) {
                         enableLocationComponent(style);
 
-                        LocationGenerator lg = new LocationGenerator();
+
                         List<Location> points = new ArrayList<Location>();
 
-                        if (db.getLocations().size() > 0) {
-                            points = db.getLocations();
+                        if (db.getLocations().size() < 0) {
+
                         } else {
                             points = lg.GenerateLocations(5, callback.getLocation());
+                            for(int i = 0; i< points.size(); i++){
+                                db.addLocation(points.get(i).getLatitude(), points.get(i).getLatitude());
+                            }
                         }
                         final List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                         for(int i = 0; i< points.size(); i++){
@@ -229,11 +233,16 @@ public class LocationComponentActivity extends AppCompatActivity implements
             }
         }
 
-        private static class LocationChangeListeningActivityLocationCallback
+        private class LocationChangeListeningActivityLocationCallback
                 implements LocationEngineCallback<LocationEngineResult> {
+
+            final double latDistance = .0005;
+            final double lngDistance = .0005;
 
             private final WeakReference<LocationComponentActivity> activityWeakReference;
             private Location CurrentLocation;
+
+
             LocationChangeListeningActivityLocationCallback(LocationComponentActivity activity) {
                 this.activityWeakReference = new WeakReference<>(activity);
                 this.CurrentLocation = new Location("");
@@ -254,7 +263,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
                     if (location == null) {
                         return;
                     }
-
+                    obtainItem();
 
                     // Pass the new location to the Maps SDK's LocationComponent
                     if (activity.mapboxMap != null && result.getLastLocation() != null) {
@@ -279,6 +288,21 @@ public class LocationComponentActivity extends AppCompatActivity implements
                     Toast.makeText(activity, exception.getLocalizedMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            public void obtainItem(){
+                ArrayList<Location> locations = db.getLocations();
+                for(int i = 0; i < locations.size(); i++){
+                    if(CurrentLocation.getLatitude() > locations.get(i).getLatitude() -latDistance
+                            && CurrentLocation.getLatitude() < locations.get(i).getLatitude() + latDistance
+                            && CurrentLocation.getLongitude() > locations.get(i).getLongitude() -lngDistance
+                            && CurrentLocation.getLongitude() < locations.get(i).getLongitude() + lngDistance){
+                        db.deleteLocation(locations.get(i).getLatitude(), locations.get(i).getLongitude());
+                        List<Location> points = lg.GenerateLocations(1, CurrentLocation);
+                        db.addLocation(locations.get(i).getLatitude(), locations.get(i).getLongitude());
+                    }
+                }
+
             }
         }
 

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Location;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addLocation(double latitude, double longitude) {
+        Log.v("Database", "Added Location");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Lang", latitude);
@@ -64,6 +66,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public ArrayList<Location> getLocations() {
+        Log.v("Database", "Getting Location");
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Location> array_list = new ArrayList<Location>();
 
@@ -81,6 +84,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean deleteLocation(double latitude, double longitude) {
+        Log.v("Database", "Deleted Location");
         String[] vals = new String[2];
         vals[0] = String.valueOf(latitude);
         vals[0] = String.valueOf(longitude);
@@ -91,6 +95,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addPlayer(int xp, String buff) {
+        Log.v("Database", "Added Player");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("XP", xp);
@@ -101,6 +106,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addPerks(String name, String effect) {
+        Log.v("Database", "Added Perks");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Name", name);
@@ -111,6 +117,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addPotions(String type, String effect, String recipe) {
+        Log.v("Database", "Added Potions");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Type", type);
@@ -122,6 +129,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addInventory(int cap) {
+        Log.v("Database", "Added Inventory");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Capacity", cap);
@@ -131,6 +139,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addIngredients(String type, String quality) {
+        Log.v("Database", "Added Ingredients");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Type", type);
