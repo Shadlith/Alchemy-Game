@@ -107,9 +107,15 @@ public class Database extends SQLiteOpenHelper {
         values.put("Type", type);
         values.put("Quality", quality);
 
-        db.insert(Perks_table, null, values);
+        db.insert(Ingredients_table, null, values);
         return true;
     }
+
+    public String getIngredients()
+    {
+        return Ingredients_table;
+    }
+
 
 
 }

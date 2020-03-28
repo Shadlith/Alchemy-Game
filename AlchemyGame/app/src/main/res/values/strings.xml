@@ -12,4 +12,6 @@
     <string name="mapbox_access_token">
         pk.eyJ1Ijoic2lyc3RlZWxlOTciLCJhIjoiY2s2c25sMHJiMDM5ZjNmcXFuaXdteXBpZCJ9.rJrQ8DHzX-R_MHKw3cSTrA
     </string>
+    <string name="IngredientsTab">Ingredients</string>
+    <string name="PotionsTab">Potions</string>
 </resources>

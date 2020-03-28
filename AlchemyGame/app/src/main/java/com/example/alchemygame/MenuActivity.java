@@ -33,5 +33,9 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openInventory(View view) {
+        Intent intent = new Intent(this, InventoryActivity.class);
+        startActivity(intent);
+    }
 
 }
