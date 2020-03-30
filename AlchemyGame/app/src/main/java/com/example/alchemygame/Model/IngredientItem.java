@@ -20,8 +20,20 @@ public class IngredientItem {
         value = nVal;
     }
 
+    public int getIDValue(){
+        return IDValue;
+    }
+
     public String getType(){
         return type;
+    }
+
+    public int getQuality(){
+        return quality;
+    }
+
+    public int getValue(){
+        return value;
     }
 
 }

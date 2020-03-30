@@ -67,8 +67,8 @@ public class MyPotionItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPoti
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.item_type);
+            mContentView = (TextView) view.findViewById(R.id.item_value);
         }
 
         @Override

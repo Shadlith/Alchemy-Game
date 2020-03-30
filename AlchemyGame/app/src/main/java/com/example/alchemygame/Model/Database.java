@@ -111,11 +111,4 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public String getIngredients()
-    {
-        return Ingredients_table;
-    }
-
-
-
 }

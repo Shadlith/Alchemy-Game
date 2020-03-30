@@ -12,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.alchemygame.Model.IngredientItem;
 import com.example.alchemygame.R;
 import com.example.alchemygame.ui.Inventory.dummy.DummyContent;
 import com.example.alchemygame.ui.Inventory.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +64,9 @@ public class IngredientItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ingredientitem_list, container, false);
+        ArrayList<IngredientItem> temp = new ArrayList<IngredientItem>();
+        temp.add(new IngredientItem());
+
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -72,7 +77,7 @@ public class IngredientItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyIngredientItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyIngredientItemRecyclerViewAdapter(temp, mListener));
         }
         return view;
     }
