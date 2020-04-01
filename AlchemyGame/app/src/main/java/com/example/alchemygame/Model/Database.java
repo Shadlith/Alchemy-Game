@@ -85,11 +85,8 @@ public class Database extends SQLiteOpenHelper {
 
     public boolean deleteLocation(double latitude, double longitude) {
         Log.v("Database", "Deleted Location");
-        String[] vals = new String[2];
-        vals[0] = String.valueOf(latitude);
-        vals[0] = String.valueOf(longitude);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Location_table, null, vals);
+        db.execSQL("DELETE FROM Location WHERE Lang = "+ latitude + " AND Long =" + longitude);
 
         return true;
     }
