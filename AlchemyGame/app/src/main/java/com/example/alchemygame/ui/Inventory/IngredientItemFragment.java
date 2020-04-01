@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.alchemygame.Model.Database;
 import com.example.alchemygame.Model.IngredientItem;
 import com.example.alchemygame.R;
 import com.example.alchemygame.ui.Inventory.dummy.DummyContent;
@@ -31,6 +32,7 @@ public class IngredientItemFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
+    Database db;
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
@@ -54,6 +56,7 @@ public class IngredientItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new Database(getContext());
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
@@ -65,7 +68,9 @@ public class IngredientItemFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ingredientitem_list, container, false);
         ArrayList<IngredientItem> temp = new ArrayList<IngredientItem>();
-        temp.add(new IngredientItem());
+        //.addIngredients(0, "Hello", 1, 14);
+        temp = db.getIngredients();
+
 
 
         // Set the adapter

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class Database extends SQLiteOpenHelper {
         String perks = "CREATE TABLE " + Perks_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Effect TEXT)";
         String inventory = "CREATE TABLE " + Inventory_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Capacity INTEGER)";
         String potions = "CREATE TABLE " + Potions_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Effect TEXT, Recipe TEXT)";
-        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, IngredientID TEXT, Type TEXT, Quality TEXT, Value TEXT)";
+        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, IngredientID INTEGER, Type TEXT, Quality INTEGER, Value INTEGER)";
 
         db.execSQL(player);
         db.execSQL(location);
@@ -102,7 +103,8 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean addIngredients(String id, String type, String quality, String value) {
+    public boolean addIngredients(int id, String type, int quality, int value) {
+        Log.v("Testing", "Added Ingredient");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("IngredientID", id);
@@ -118,12 +120,14 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<IngredientItem> array_list = new ArrayList<IngredientItem>();
 
-        Cursor res = db.rawQuery("SELECT * FROM Location", null);
+        Cursor res = db.rawQuery("SELECT * FROM Ingredients", null);
         res.moveToFirst();
-        while(res.isAfterLast() == false) {
-            IngredientItem temp = new IngredientItem(
-
-            );
+        while(!res.isAfterLast()) {
+            IngredientItem temp = new IngredientItem();
+            temp.setIDValue(res.getInt(res.getColumnIndex("IngredientID")));
+            temp.setType(res.getString(res.getColumnIndex("Type")));
+            temp.setQuality(res.getInt(res.getColumnIndex("Quality")));
+            temp.setValue(res.getInt(res.getColumnIndex("Value")));
 
             array_list.add(temp);
             res.moveToNext();
