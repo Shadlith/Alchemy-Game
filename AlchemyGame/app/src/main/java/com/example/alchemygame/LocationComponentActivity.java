@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import android.widget.Toast;
 import com.example.alchemygame.LocationGenerator.LocationGenerator;
 import com.example.alchemygame.Model.Database;
+import com.example.alchemygame.ui.Inventory.ItemTypes.Ingredient;
 import com.mapbox.android.core.location.*;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
@@ -40,7 +41,9 @@ import com.mapbox.mapboxsdk.utils.ColorUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Use the LocationComponent to easily add a device location "puck" to a Mapbox map.
@@ -51,7 +54,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
         private static final long DEFAULT_INTERVAL_IN_MILLISECONDS = 1000L;
         private static final long DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 5;
 
-    List points = new ArrayList();
+
 
         private MapboxMap mapboxMap;
         public MapView mapView;
@@ -61,16 +64,18 @@ public class LocationComponentActivity extends AppCompatActivity implements
                 new LocationChangeListeningActivityLocationCallback(this);
         public Database db;
         public LocationGenerator lg;
+        public List<Location> points;
 
+        public Boolean styleLoaded;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            lg = new LocationGenerator();
-            // Mapbox access token is configured here. This needs to be called either in your application
-            // object or in the same activity which contains the mapview.
-            Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
+            styleLoaded = false;
 
+            lg = new LocationGenerator();
+
+            points = new ArrayList<Location>();
             // This contains the MapView in XML and needs to be called after the access token is configured.
             setContentView(R.layout.activity_map);
             db = new Database(getApplicationContext());
@@ -89,15 +94,12 @@ public class LocationComponentActivity extends AppCompatActivity implements
                     @Override public void onStyleLoaded(@NonNull Style style) {
                         enableLocationComponent(style);
 
-
-                        List<Location> points = new ArrayList<Location>();
-
-                        if (db.getLocations().size() < 0) {
-
+                        if (db.getLocations().size() > 0) {
+                            points = new ArrayList<>(db.getLocations().values());
                         } else {
                             points = lg.GenerateLocations(5, callback.getLocation());
                             for(int i = 0; i< points.size(); i++){
-                                db.addLocation(points.get(i).getLatitude(), points.get(i).getLatitude());
+                                db.addLocation(points.get(i).getLatitude(), points.get(i).getLongitude());
                             }
                         }
                         final List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
@@ -109,6 +111,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
                         style.addSource(new GeoJsonSource("SOURCE_ID",
                                 FeatureCollection.fromFeatures(symbolLayerIconFeatureList)));
                         style.addLayer(new CircleLayer("LAYER_ID", "SOURCE_ID"));
+                        styleLoaded = true;
                     }
                 });
     }
@@ -263,11 +266,15 @@ public class LocationComponentActivity extends AppCompatActivity implements
                     if (location == null) {
                         return;
                     }
-                    obtainItem();
+
 
                     // Pass the new location to the Maps SDK's LocationComponent
                     if (activity.mapboxMap != null && result.getLastLocation() != null) {
                         activity.mapboxMap.getLocationComponent().forceLocationUpdate(result.getLastLocation());
+                    }
+
+                    if(styleLoaded){
+                        obtainItem();
                     }
                 }
             }
@@ -291,18 +298,23 @@ public class LocationComponentActivity extends AppCompatActivity implements
             }
 
             public void obtainItem(){
-                ArrayList<Location> locations = db.getLocations();
-                for(int i = 0; i < locations.size(); i++){
-                    if(CurrentLocation.getLatitude() > locations.get(i).getLatitude() -latDistance
-                            && CurrentLocation.getLatitude() < locations.get(i).getLatitude() + latDistance
-                            && CurrentLocation.getLongitude() > locations.get(i).getLongitude() -lngDistance
-                            && CurrentLocation.getLongitude() < locations.get(i).getLongitude() + lngDistance){
-                        db.deleteLocation(locations.get(i).getLatitude(), locations.get(i).getLongitude());
-                        List<Location> points = lg.GenerateLocations(1, CurrentLocation);
-                        db.addLocation(locations.get(i).getLatitude(), locations.get(i).getLongitude());
+                Map<Integer, Location> locations = db.getLocations();
+                Log.v("Database", String.valueOf(locations.size()));
+                for (Map.Entry<Integer, Location> loc: locations.entrySet()) {
+                    if(CurrentLocation.getLatitude() >  loc.getValue().getLatitude() -latDistance
+                            && CurrentLocation.getLatitude() < loc.getValue().getLatitude() + latDistance
+                            && CurrentLocation.getLongitude() > loc.getValue().getLongitude()-lngDistance
+                            && CurrentLocation.getLongitude() < loc.getValue().getLongitude() + lngDistance){
+                        db.deleteLocation(loc.getKey());
+                        Ingredient ingredient = new Ingredient();
+                        db.addIngredients(ingredient.Type, ingredient.Quality, ingredient.Value);
+                        LocationGenerator lg2 = new LocationGenerator();
+                        Location NewLocation = lg2.GenerateLocations(1, CurrentLocation).get(0);
+                        db.addLocation(NewLocation.getLatitude(), NewLocation.getLongitude());
+                        ResetStyle();
+                        return;
                     }
                 }
-
             }
         }
 
@@ -350,5 +362,28 @@ public class LocationComponentActivity extends AppCompatActivity implements
         public void onLowMemory() {
             super.onLowMemory();
             mapView.onLowMemory();
+        }
+
+        public void ResetStyle(){
+
+            mapboxMap.setStyle(Style.OUTDOORS,
+                    new Style.OnStyleLoaded() {
+                        @Override public void onStyleLoaded(@NonNull Style style) {
+                            enableLocationComponent(style);
+
+                            points = new ArrayList<>(db.getLocations().values());
+
+                            final List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                            for(int i = 0; i< points.size(); i++){
+                                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                                        Point.fromLngLat(points.get(i).getLongitude(), points.get(i).getLatitude())));
+                            }
+
+                            style.addSource(new GeoJsonSource("SOURCE_ID",
+                                    FeatureCollection.fromFeatures(symbolLayerIconFeatureList)));
+                            style.addLayer(new CircleLayer("LAYER_ID", "SOURCE_ID"));
+                            styleLoaded = true;
+                        }
+                    });
         }
     }
