@@ -9,6 +9,8 @@ import android.location.Location;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Database extends SQLiteOpenHelper {
     public static  final String DATABASE_NAME = "AlchemyGame.db";
@@ -62,13 +64,14 @@ public class Database extends SQLiteOpenHelper {
         values.put("Long", longitude);
 
         db.insert(Location_table, null, values);
+        db.close();
         return true;
     }
 
-    public ArrayList<Location> getLocations() {
+    public Map<Integer, Location> getLocations() {
         Log.v("Database", "Getting Location");
         SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<Location> array_list = new ArrayList<Location>();
+        Map<Integer, Location> array_list = new HashMap<Integer, Location>();
 
         Cursor res = db.rawQuery("SELECT * FROM Location", null);
         res.moveToFirst();
@@ -77,16 +80,18 @@ public class Database extends SQLiteOpenHelper {
             loc.setLatitude(Double.parseDouble(res.getString(res.getColumnIndex("Lang"))));
             loc.setLongitude(Double.parseDouble(res.getString(res.getColumnIndex("Long"))));
 
-            array_list.add(loc);
+            array_list.put(res.getInt(0), loc);
             res.moveToNext();
         }
+        db.close();
         return array_list;
     }
 
-    public boolean deleteLocation(double latitude, double longitude) {
+    public boolean deleteLocation(int ID) {
         Log.v("Database", "Deleted Location");
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM Location WHERE Lang = "+ latitude + " AND Long =" + longitude);
+        String where="ID=";
+        db.execSQL("DELETE FROM Location WHERE ID= " + ID);
 
         return true;
     }

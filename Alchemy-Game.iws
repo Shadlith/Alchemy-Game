@@ -12,8 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1083ca6-6519-4715-a3fe-64831357b791" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alchemy-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/LocationComponentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/LocationComponentActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Model/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +55,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Alchemy Game" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Alchemy-Game" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Alchemy-Game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -223,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583515047623</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed map issue">
+      <created>1585788232693</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585788232693</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,7 +240,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -242,7 +253,8 @@
     <MESSAGE value="Working?" />
     <MESSAGE value="Added the map feature" />
     <MESSAGE value="Added map Activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added map Activity" />
+    <MESSAGE value="fixed map issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed map issue" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="72" key="#Notifications" timestamp="1583338797999">
@@ -262,15 +274,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="697" y="324" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585754891820" />
-    <state x="612" y="182" key="#com.intellij.ide.util.MemberChooser" timestamp="1583342376901">
+    <state x="612" y="182" key="#com.intellij.ide.util.MemberChooser" timestamp="1585791437160">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="612" y="182" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1583342376901" />
+    <state x="612" y="182" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585791437160" />
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1582160467313" />
-    <state x="537" y="273" width="462" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583341143631">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="671" y="345" width="462" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585850798069">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="537" y="273" width="462" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1583341143631" />
+    <state x="671" y="345" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850798069" />
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585787030949">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -279,75 +292,76 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="627" y="226" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1585785948075" />
-    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1585788200228">
+    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1585788231980">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585788200228" />
-    <state x="490" y="176" key="DBNavigator.ProjectSettingsDialog" timestamp="1585754257296">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585788231980" />
+    <state x="392" y="137" key="DBNavigator.ProjectSettingsDialog" timestamp="1585796144635">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="392" y="137" key="DBNavigator.ProjectSettingsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585796144635" />
     <state x="490" y="176" key="DBNavigator.ProjectSettingsDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585754257296" />
-    <state x="147" y="71" width="1228" height="685" key="DiffContextDialog" timestamp="1585787628369">
+    <state x="147" y="71" width="1228" height="685" key="DiffContextDialog" timestamp="1585788529122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="71" width="1228" height="685" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1585787628369" />
-    <state x="686" y="212" key="FileChooserDialogImpl" timestamp="1583259972386">
+    <state x="147" y="71" width="1228" height="685" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788529122" />
+    <state x="686" y="212" key="FileChooserDialogImpl" timestamp="1585850765512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1582238251529" />
-    <state x="686" y="212" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1583259972386" />
-    <state width="1172" height="146" key="GridCell.Tab.0.bottom" timestamp="1585788105381">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1172" height="146" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585788105381" />
-    <state width="937" height="227" key="GridCell.Tab.0.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757257517" />
-    <state width="1172" height="146" key="GridCell.Tab.0.center" timestamp="1585788105381">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1172" height="146" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585788105381" />
-    <state width="937" height="227" key="GridCell.Tab.0.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757257517" />
-    <state width="1172" height="146" key="GridCell.Tab.0.left" timestamp="1585788105380">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1172" height="146" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585788105380" />
-    <state width="937" height="227" key="GridCell.Tab.0.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757257517" />
-    <state width="1172" height="146" key="GridCell.Tab.0.right" timestamp="1585788105381">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1172" height="146" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585788105381" />
-    <state width="937" height="227" key="GridCell.Tab.0.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757257517" />
-    <state width="937" height="227" key="GridCell.Tab.1.bottom" timestamp="1585757291779">
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585796143739" />
+    <state x="686" y="212" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850765512" />
+    <state width="935" height="201" key="GridCell.Tab.0.bottom" timestamp="1585850551756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="746" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582227933375" />
-    <state width="937" height="227" key="GridCell.Tab.1.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757291779" />
-    <state width="937" height="227" key="GridCell.Tab.1.center" timestamp="1585757291779">
+    <state width="745" height="149" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.0.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850551756" />
+    <state width="935" height="201" key="GridCell.Tab.0.center" timestamp="1585850551756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="746" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582227933375" />
-    <state width="937" height="227" key="GridCell.Tab.1.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757291779" />
-    <state width="937" height="227" key="GridCell.Tab.1.left" timestamp="1585757291779">
+    <state width="745" height="149" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.0.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850551756" />
+    <state width="935" height="201" key="GridCell.Tab.0.left" timestamp="1585850551756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="746" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582227933375" />
-    <state width="937" height="227" key="GridCell.Tab.1.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757291779" />
-    <state width="937" height="227" key="GridCell.Tab.1.right" timestamp="1585757291779">
+    <state width="745" height="149" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.0.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850551756" />
+    <state width="935" height="201" key="GridCell.Tab.0.right" timestamp="1585850551756">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="746" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582227933375" />
-    <state width="937" height="227" key="GridCell.Tab.1.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585757291779" />
+    <state width="745" height="149" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.0.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850551756" />
+    <state width="935" height="201" key="GridCell.Tab.1.bottom" timestamp="1585850656190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="745" height="149" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.1.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850656190" />
+    <state width="935" height="201" key="GridCell.Tab.1.center" timestamp="1585850656190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="745" height="149" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.1.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850656190" />
+    <state width="935" height="201" key="GridCell.Tab.1.left" timestamp="1585850656190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="745" height="149" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.1.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850656190" />
+    <state width="935" height="201" key="GridCell.Tab.1.right" timestamp="1585850656190">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="745" height="149" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585796721976" />
+    <state width="935" height="201" key="GridCell.Tab.1.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585850656190" />
     <state x="349" y="156" key="IDE.errors.dialog" timestamp="1583516876556">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="156" key="IDE.errors.dialog/0.0.1536.824@0.0.1536.824" timestamp="1583516876556" />
-    <state x="147" y="71" key="MergeDialog" timestamp="1583353978792">
+    <state x="147" y="71" key="MergeDialog" timestamp="1585788395088">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="71" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1583353978792" />
-    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1585787315519">
+    <state x="147" y="71" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788395088" />
+    <state x="481" y="129" key="MultipleFileMergeDialog" timestamp="1585788395092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1585787315519" />
+    <state x="481" y="129" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788395092" />
     <state x="425" y="124" key="RollbackChangesDialog" timestamp="1585787166220">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -365,19 +379,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1536.824@0.0.1536.824" timestamp="1583517107831" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1585753459565">
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1585848869792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583429818711" />
-    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585753459565" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788661700" />
+    <state x="581" y="300" key="com.intellij.ide.util.TipDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585848869792" />
     <state x="444" y="126" key="git4idea.branch.GitSmartOperationDialog" timestamp="1585787308940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="444" y="126" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1585787308940" />
-    <state x="537" y="247" key="git4idea.merge.GitPullDialog" timestamp="1585788218582">
+    <state x="537" y="247" key="git4idea.merge.GitPullDialog" timestamp="1585788243410">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="537" y="247" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788218582" />
+    <state x="537" y="247" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1585788243410" />
     <state x="671" y="312" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585753563323" />
     <state x="209" y="109" key="new project wizard" timestamp="1583340305779">
       <screen x="0" y="0" width="1536" height="824" />
@@ -389,6 +403,20 @@
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583341134585" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Model/Database.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/LocationComponentActivity.java</url>
+          <line>308</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="observer" />

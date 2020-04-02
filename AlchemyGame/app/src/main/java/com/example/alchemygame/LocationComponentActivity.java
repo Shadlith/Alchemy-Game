@@ -40,7 +40,9 @@ import com.mapbox.mapboxsdk.utils.ColorUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Use the LocationComponent to easily add a device location "puck" to a Mapbox map.
@@ -94,7 +96,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
                         enableLocationComponent(style);
 
                         if (db.getLocations().size() > 0) {
-                            points = db.getLocations();
+                            points = new ArrayList<>(db.getLocations().values());
                         } else {
                             points = lg.GenerateLocations(5, callback.getLocation());
                             for(int i = 0; i< points.size(); i++){
@@ -297,20 +299,20 @@ public class LocationComponentActivity extends AppCompatActivity implements
             }
 
             public void obtainItem(){
-                ArrayList<Location> locations = db.getLocations();
+                Map<Integer, Location> locations = db.getLocations();
                 Log.v("Database", String.valueOf(locations.size()));
-                for(int i = 0; i < locations.size(); i++){
-                    if(CurrentLocation.getLatitude() > locations.get(i).getLatitude() -latDistance
-                            && CurrentLocation.getLatitude() < locations.get(i).getLatitude() + latDistance
-                            && CurrentLocation.getLongitude() > locations.get(i).getLongitude() -lngDistance
-                            && CurrentLocation.getLongitude() < locations.get(i).getLongitude() + lngDistance){
-                        db.deleteLocation(locations.get(i).getLatitude(), locations.get(i).getLongitude());
-                        Location NewLocation = lg.GenerateLocations(1, CurrentLocation).get(0);
+                for (Map.Entry<Integer, Location> loc: locations.entrySet()) {
+                    if(CurrentLocation.getLatitude() >  loc.getValue().getLatitude() -latDistance
+                            && CurrentLocation.getLatitude() < loc.getValue().getLatitude() + latDistance
+                            && CurrentLocation.getLongitude() > loc.getValue().getLongitude()-lngDistance
+                            && CurrentLocation.getLongitude() < loc.getValue().getLongitude() + lngDistance){
+                        db.deleteLocation(loc.getKey());
+                        LocationGenerator lg2 = new LocationGenerator();
+                        Location NewLocation = lg2.GenerateLocations(1, CurrentLocation).get(0);
                         db.addLocation(NewLocation.getLatitude(), NewLocation.getLongitude());
-
+                        return;
                     }
                 }
-
             }
         }
 
