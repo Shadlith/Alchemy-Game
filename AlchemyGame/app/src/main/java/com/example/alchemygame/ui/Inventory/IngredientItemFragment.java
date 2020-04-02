@@ -21,6 +21,8 @@ import com.example.alchemygame.ui.Inventory.dummy.DummyContent.DummyItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -32,10 +34,9 @@ public class IngredientItemFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
-    Database db;
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-
+    private Database db = new Database(getApplicationContext());
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -56,7 +57,6 @@ public class IngredientItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new Database(getContext());
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
@@ -67,9 +67,7 @@ public class IngredientItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_ingredientitem_list, container, false);
-        ArrayList<IngredientItem> temp = new ArrayList<IngredientItem>();
-        //.addIngredients(0, "Hello", 1, 14);
-        temp = db.getIngredients();
+        ArrayList<IngredientItem> temp = db.getIngredients();
 
 
 

@@ -5,9 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.location.Location;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Database extends SQLiteOpenHelper {
     public static  final String DATABASE_NAME = "AlchemyGame.db";
@@ -31,7 +34,7 @@ public class Database extends SQLiteOpenHelper {
         String perks = "CREATE TABLE " + Perks_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Effect TEXT)";
         String inventory = "CREATE TABLE " + Inventory_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Capacity INTEGER)";
         String potions = "CREATE TABLE " + Potions_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Effect TEXT, Recipe TEXT)";
-        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, IngredientID INTEGER, Type TEXT, Quality INTEGER, Value INTEGER)";
+        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Quality TEXT, Value TEXT)";
 
         db.execSQL(player);
         db.execSQL(location);
@@ -54,16 +57,47 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addLocation(double latitude, double longitude) {
+        Log.v("Database", "Added Location");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Lang", latitude);
         values.put("Long", longitude);
 
         db.insert(Location_table, null, values);
+        db.close();
+        return true;
+    }
+
+    public Map<Integer, Location> getLocations() {
+        Log.v("Database", "Getting Location");
+        SQLiteDatabase db = this.getReadableDatabase();
+        Map<Integer, Location> array_list = new HashMap<Integer, Location>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Location", null);
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            Location loc = new Location("");
+            loc.setLatitude(Double.parseDouble(res.getString(res.getColumnIndex("Lang"))));
+            loc.setLongitude(Double.parseDouble(res.getString(res.getColumnIndex("Long"))));
+
+            array_list.put(res.getInt(0), loc);
+            res.moveToNext();
+        }
+        db.close();
+        return array_list;
+    }
+
+    public boolean deleteLocation(int ID) {
+        Log.v("Database", "Deleted Location");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String where="ID=";
+        db.execSQL("DELETE FROM Location WHERE ID= " + ID);
+
         return true;
     }
 
     public boolean addPlayer(int xp, String buff) {
+        Log.v("Database", "Added Player");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("XP", xp);
@@ -74,6 +108,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addPerks(String name, String effect) {
+        Log.v("Database", "Added Perks");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Name", name);
@@ -84,6 +119,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addPotions(String type, String effect, String recipe) {
+        Log.v("Database", "Added Potions");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Type", type);
@@ -95,6 +131,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean addInventory(int cap) {
+        Log.v("Database", "Added Inventory");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Capacity", cap);
@@ -103,11 +140,9 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean addIngredients(int id, String type, int quality, int value) {
-        Log.v("Testing", "Added Ingredient");
+    public boolean addIngredients(String type, String quality, String value) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("IngredientID", id);
         values.put("Type", type);
         values.put("Quality", quality);
         values.put("Value", value);
@@ -122,12 +157,13 @@ public class Database extends SQLiteOpenHelper {
 
         Cursor res = db.rawQuery("SELECT * FROM Ingredients", null);
         res.moveToFirst();
-        while(!res.isAfterLast()) {
-            IngredientItem temp = new IngredientItem();
-            temp.setIDValue(res.getInt(res.getColumnIndex("IngredientID")));
-            temp.setType(res.getString(res.getColumnIndex("Type")));
-            temp.setQuality(res.getInt(res.getColumnIndex("Quality")));
-            temp.setValue(res.getInt(res.getColumnIndex("Value")));
+        while(res.isAfterLast() == false) {
+            IngredientItem temp = new IngredientItem(
+                res.getInt(0),
+                res.getString(1),
+                res.getString(2),
+                res.getString(3)
+            );
 
             array_list.add(temp);
             res.moveToNext();
