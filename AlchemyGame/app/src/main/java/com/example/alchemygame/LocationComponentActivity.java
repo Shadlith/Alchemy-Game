@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import android.widget.Toast;
 import com.example.alchemygame.LocationGenerator.LocationGenerator;
 import com.example.alchemygame.Model.Database;
+import com.example.alchemygame.ui.Inventory.ItemTypes.Ingredient;
 import com.mapbox.android.core.location.*;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
@@ -73,9 +74,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
             styleLoaded = false;
 
             lg = new LocationGenerator();
-            // Mapbox access token is configured here. This needs to be called either in your application
-            // object or in the same activity which contains the mapview.
-            Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
+
             points = new ArrayList<Location>();
             // This contains the MapView in XML and needs to be called after the access token is configured.
             setContentView(R.layout.activity_map);
@@ -307,9 +306,12 @@ public class LocationComponentActivity extends AppCompatActivity implements
                             && CurrentLocation.getLongitude() > loc.getValue().getLongitude()-lngDistance
                             && CurrentLocation.getLongitude() < loc.getValue().getLongitude() + lngDistance){
                         db.deleteLocation(loc.getKey());
+                        Ingredient ingredient = new Ingredient();
+                        db.addIngredients(ingredient.Type, ingredient.Quality, ingredient.Value);
                         LocationGenerator lg2 = new LocationGenerator();
                         Location NewLocation = lg2.GenerateLocations(1, CurrentLocation).get(0);
                         db.addLocation(NewLocation.getLatitude(), NewLocation.getLongitude());
+                        ResetStyle();
                         return;
                     }
                 }
@@ -360,5 +362,28 @@ public class LocationComponentActivity extends AppCompatActivity implements
         public void onLowMemory() {
             super.onLowMemory();
             mapView.onLowMemory();
+        }
+
+        public void ResetStyle(){
+
+            mapboxMap.setStyle(Style.OUTDOORS,
+                    new Style.OnStyleLoaded() {
+                        @Override public void onStyleLoaded(@NonNull Style style) {
+                            enableLocationComponent(style);
+
+                            points = new ArrayList<>(db.getLocations().values());
+
+                            final List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                            for(int i = 0; i< points.size(); i++){
+                                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                                        Point.fromLngLat(points.get(i).getLongitude(), points.get(i).getLatitude())));
+                            }
+
+                            style.addSource(new GeoJsonSource("SOURCE_ID",
+                                    FeatureCollection.fromFeatures(symbolLayerIconFeatureList)));
+                            style.addLayer(new CircleLayer("LAYER_ID", "SOURCE_ID"));
+                            styleLoaded = true;
+                        }
+                    });
         }
     }

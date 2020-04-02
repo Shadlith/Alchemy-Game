@@ -34,7 +34,7 @@ public class Database extends SQLiteOpenHelper {
         String perks = "CREATE TABLE " + Perks_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Effect TEXT)";
         String inventory = "CREATE TABLE " + Inventory_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Capacity INTEGER)";
         String potions = "CREATE TABLE " + Potions_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Effect TEXT, Recipe TEXT)";
-        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Quality TEXT)";
+        String ingredients = "CREATE TABLE " + Ingredients_table + "( ID INTEGER PRIMARY KEY AUTOINCREMENT, Type TEXT, Quality TEXT, Value TEXT)";
 
         db.execSQL(player);
         db.execSQL(location);
@@ -140,10 +140,9 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean addIngredients(String id, String type, String quality, String value) {
+    public boolean addIngredients(String type, String quality, String value) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("IngredientID", id);
         values.put("Type", type);
         values.put("Quality", quality);
         values.put("Value", value);
@@ -156,11 +155,14 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<IngredientItem> array_list = new ArrayList<IngredientItem>();
 
-        Cursor res = db.rawQuery("SELECT * FROM Location", null);
+        Cursor res = db.rawQuery("SELECT * FROM Ingredients", null);
         res.moveToFirst();
         while(res.isAfterLast() == false) {
             IngredientItem temp = new IngredientItem(
-
+                res.getInt(0),
+                res.getString(1),
+                res.getString(2),
+                res.getString(3)
             );
 
             array_list.add(temp);
