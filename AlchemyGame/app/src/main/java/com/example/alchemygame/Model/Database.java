@@ -135,16 +135,33 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean addIngredients(String type, String quality) {
-        Log.v("Database", "Added Ingredients");
+    public boolean addIngredients(String id, String type, String quality, String value) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("IngredientID", id);
         values.put("Type", type);
         values.put("Quality", quality);
+        values.put("Value", value);
 
-        db.insert(Perks_table, null, values);
+        db.insert(Ingredients_table, null, values);
         return true;
     }
 
+    public ArrayList<IngredientItem> getIngredients() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<IngredientItem> array_list = new ArrayList<IngredientItem>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Location", null);
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            IngredientItem temp = new IngredientItem(
+
+            );
+
+            array_list.add(temp);
+            res.moveToNext();
+        }
+        return array_list;
+    }
 
 }
