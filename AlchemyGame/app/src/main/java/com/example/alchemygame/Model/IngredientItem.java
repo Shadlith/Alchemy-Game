@@ -36,4 +36,20 @@ public class IngredientItem {
         return value;
     }
 
+    public void setIDValue(int nIDValue){
+        IDValue = nIDValue;
+    }
+
+    public void setType(String nType){
+        type = nType;
+    }
+
+    public void setQuality(String nQuality){
+        quality = nQuality;
+    }
+
+    public void setValue(String nValue){
+        value = nValue;
+    }
+
 }
