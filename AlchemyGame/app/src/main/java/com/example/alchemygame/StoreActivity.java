@@ -27,7 +27,7 @@ public class StoreActivity extends AppCompatActivity {
     Database db;
     Button mBuy;
     TextView mValue, mType, mQuality;
-    Cash cash;
+    Cash nCash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +59,9 @@ public class StoreActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             db.addIngredients(type, quality, value);
-                            cash = new Cash();
-                            int value = cash.getCash();
-                            value -= 5;
-                            cash.updateCash(value);
+                            nCash = new Cash();
+                            int val = nCash.getCash();
+                            nCash.cash = val -5;
 
                         }
                     });

@@ -7,11 +7,15 @@ public class Cash {
         cash = 100;
     }
 
-    public void updateCash(int nCash) {
+    public Cash(int nCash) {
         cash = nCash;
     }
 
     public int getCash() {
         return cash;
+    }
+
+    public void updateCash(int nCash) {
+        cash = nCash;
     }
 }
