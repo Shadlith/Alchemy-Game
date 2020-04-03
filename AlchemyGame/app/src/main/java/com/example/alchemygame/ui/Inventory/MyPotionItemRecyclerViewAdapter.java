@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.alchemygame.Model.IngredientItem;
 import com.example.alchemygame.R;
+import com.example.alchemygame.ui.Inventory.ItemTypes.Potion;
 import com.example.alchemygame.ui.Inventory.PotionItemFragment.OnListFragmentInteractionListener;
 import com.example.alchemygame.ui.Inventory.dummy.DummyContent.DummyItem;
 
@@ -20,10 +22,10 @@ import java.util.List;
  */
 public class MyPotionItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPotionItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Potion> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyPotionItemRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyPotionItemRecyclerViewAdapter(List<Potion> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -38,8 +40,8 @@ public class MyPotionItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPoti
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mType.setText("" + mValues.get(position).getType());
+        holder.mEffects.setText("" +mValues.get(position).getEffect());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +49,7 @@ public class MyPotionItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPoti
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    //mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
         });
@@ -60,20 +62,16 @@ public class MyPotionItemRecyclerViewAdapter extends RecyclerView.Adapter<MyPoti
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView mType;
+        public final TextView mEffects;
+        public Potion mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_type);
-            mContentView = (TextView) view.findViewById(R.id.item_value);
+            mType = (TextView) view.findViewById(R.id.item_type);
+            mEffects = (TextView) view.findViewById(R.id.item_value);
         }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
     }
 }

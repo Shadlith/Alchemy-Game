@@ -43,6 +43,11 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openCrafting(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void openStats(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

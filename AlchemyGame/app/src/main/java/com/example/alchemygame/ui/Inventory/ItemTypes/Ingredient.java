@@ -13,10 +13,10 @@ public class Ingredient {
         Random rand = new Random();
         int Value = 0;
         int odds = rand.nextInt(3);
-        if( odds <=1){
+        if( odds == 0){
             Type = "Herbs";
             Value =+ 50;
-        }else if(odds <=2){
+        }else if(odds == 1){
             Type = "Ore";
             Value =+ 70;
         }else{
@@ -25,10 +25,10 @@ public class Ingredient {
         }
 
         odds = rand.nextInt(3);
-        if( odds <=1){
+        if( odds == 0){
             Quality = "Poor";
             Value =+ 50;
-        }else if(odds <=2){
+        }else if(odds == 1){
             Quality = "Fine";
             Value =+ 100;
         }else{
