@@ -107,6 +107,25 @@ public class Database extends SQLiteOpenHelper {
         return true;
     }
 
+    public ArrayList<PlayerItem> getPlayer() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<PlayerItem> arrayList = new ArrayList<PlayerItem>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Player", null);
+        res.moveToFirst();
+        while (res.isAfterLast() == false) {
+            PlayerItem temp = new PlayerItem(
+                    res.getInt(0),
+                    res.getInt(1),
+                    res.getString(2)
+            );
+            arrayList.add(temp);
+            res.moveToNext();
+        }
+        return arrayList;
+    }
+
+
     public boolean addPerks(String name, String effect) {
         Log.v("Database", "Added Perks");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -116,6 +135,24 @@ public class Database extends SQLiteOpenHelper {
 
         db.insert(Perks_table, null, values);
         return true;
+    }
+
+    public ArrayList<PerksItem> getPerks() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<PerksItem> arrayList = new ArrayList<PerksItem>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Perks", null);
+        res.moveToFirst();
+        while (res.isAfterLast() == false) {
+            PerksItem temp = new PerksItem(
+                    res.getInt(0),
+                    res.getString(1),
+                    res.getString(2)
+            );
+            arrayList.add(temp);
+            res.moveToNext();
+        }
+        return arrayList;
     }
 
     public boolean addPotions(String type, String effect, String recipe) {

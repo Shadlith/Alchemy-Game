@@ -6,12 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
 import com.mapbox.mapboxsdk.Mapbox;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mMapButton;
+    private Button mInventoryButton;
+    private Button mStatsButton;
+    private Button mStoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +34,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(map);
             }
         });
+
+
+        mInventoryButton = findViewById(R.id.inventoryButton);
+        mInventoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shop = new Intent(MainActivity.this, InventoryActivity.class);
+                startActivity(shop);
+            }
+        });
+
+        mStatsButton = findViewById(R.id.statsButton);
+        mStatsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent stats = new Intent(MainActivity.this, StatsActivity.class);
+                startActivity(stats);
+            }
+        });
+
+        mStoreButton = findViewById(R.id.storeButton);
+        mStoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent store = new Intent(MainActivity.this, StoreActivity.class);
+                startActivity(store);
+            }
+        });
     }
 
     public void openInventory(View view) {
         Intent intent = new Intent(this, InventoryActivity.class);
         startActivity(intent);
     }
+
+
 
 
 }

@@ -30,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
                 Toast.makeText(MenuActivity.this, "Test", Toast.LENGTH_SHORT).show();
 
             }
-        });*/
+        });
     }
 
     public void openMap(View view) {
@@ -39,8 +39,19 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void openInventory(View view) {
-        Intent intent = new Intent(this, InventoryActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void openStats(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openStore(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 
 }

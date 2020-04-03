@@ -27,8 +27,5 @@ public class InventoryActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.inventory_tabs);
         tabs.setupWithViewPager(viewPager);
 
-
-
-
     }
 }
