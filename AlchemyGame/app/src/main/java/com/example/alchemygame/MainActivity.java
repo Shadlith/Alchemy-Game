@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mInventoryButton;
     private Button mStatsButton;
     private Button mStoreButton;
+    private Button mCraftingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent store = new Intent(MainActivity.this, StoreActivity.class);
+                startActivity(store);
+            }
+        });
+
+        mCraftingButton = findViewById(R.id.craftButton);
+        mCraftingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent store = new Intent(MainActivity.this, Crafting.class);
                 startActivity(store);
             }
         });

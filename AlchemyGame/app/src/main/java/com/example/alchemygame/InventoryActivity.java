@@ -28,4 +28,5 @@ public class InventoryActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
     }
+
 }

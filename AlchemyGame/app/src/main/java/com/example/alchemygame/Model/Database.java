@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.location.Location;
 import android.util.Log;
+import com.example.alchemygame.ui.Inventory.ItemTypes.Potion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,7 +107,7 @@ public class Database extends SQLiteOpenHelper {
         db.insert(Player_table, null, values);
         return true;
     }
-
+    /*
     public ArrayList<PlayerItem> getPlayer() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<PlayerItem> arrayList = new ArrayList<PlayerItem>();
@@ -124,7 +125,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-
+*/
 
     public boolean addPerks(String name, String effect) {
         Log.v("Database", "Added Perks");
@@ -136,7 +137,7 @@ public class Database extends SQLiteOpenHelper {
         db.insert(Perks_table, null, values);
         return true;
     }
-
+/*
     public ArrayList<PerksItem> getPerks() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<PerksItem> arrayList = new ArrayList<PerksItem>();
@@ -154,7 +155,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-
+*/
     public boolean addPotions(String type, String effect, String recipe) {
         Log.v("Database", "Added Potions");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -207,5 +208,35 @@ public class Database extends SQLiteOpenHelper {
         }
         return array_list;
     }
+
+    public boolean deleteIngredient(int id) {
+        Log.v("Database", "Deleted Location");
+        SQLiteDatabase db = this.getWritableDatabase();
+        String where="ID=";
+        db.execSQL("DELETE FROM Ingredients WHERE ID= " + id);
+
+        return true;
+    }
+
+    public ArrayList<Potion> getPotions() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Potion> array_list = new ArrayList<Potion>();
+
+        Cursor res = db.rawQuery("SELECT * FROM Potions", null);
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            Potion temp = new Potion(
+                    res.getInt(0),
+                    res.getString(1),
+                    res.getString(2),
+                    res.getString(3)
+            );
+
+            array_list.add(temp);
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
 
 }
