@@ -44,11 +44,11 @@ public class IngredientItem {
         type = nType;
     }
 
-    public void setQuality(int nQuality){
+    public void setQuality(String nQuality){
         quality = nQuality;
     }
 
-    public void setValue(int nValue){
+    public void setValue(String nValue){
         value = nValue;
     }
 
