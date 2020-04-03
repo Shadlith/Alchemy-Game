@@ -12,22 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1083ca6-6519-4715-a3fe-64831357b791" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Crafting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/ItemTypes/Potion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/layout/activity_crafting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/layout/activity_inventory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/layout/craftingitem.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/InventoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/InventoryActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/MenuActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Model/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/Model/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/ItemTypes/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/ItemTypes/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/MyPotionItemRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/MyPotionItemRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/PotionItemFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/ui/Inventory/PotionItemFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585856796980</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added crafting functionality">
+      <created>1585955851952</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1585955851952</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +301,8 @@
     <MESSAGE value="fixed map issue" />
     <MESSAGE value="Finally fixed deleting and generating a new location" />
     <MESSAGE value="Added most of map functionality and tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added most of map functionality and tested" />
+    <MESSAGE value="Added crafting functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added crafting functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="72" key="#Notifications" timestamp="1583338797999">
@@ -353,10 +346,10 @@
     </state>
     <state x="627" y="226" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1585785948075" />
     <state x="784" y="285" key="AndroidCreateXmlResourceDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585940529243" />
-    <state x="476" y="10" key="CommitChangelistDialog2" timestamp="1585856796142">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1585955851073">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585788231980" />
+    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585955851073" />
     <state x="476" y="10" key="CommitChangelistDialog2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585856796142" />
     <state x="392" y="137" key="DBNavigator.ProjectSettingsDialog" timestamp="1585796144635">
       <screen x="0" y="0" width="1536" height="824" />
