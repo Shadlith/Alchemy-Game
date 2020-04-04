@@ -4,12 +4,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -22,11 +27,14 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class StoreActivity extends AppCompatActivity {
 
+    Ingredient ingredient;
     Database db;
+    TextView mValue, mQuality, mType;
     Button mBuy;
-    TextView mValue, mType, mQuality;
     Cash nCash;
 
     @Override
@@ -34,6 +42,7 @@ public class StoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         db = new Database(this);
+
         for (int i =0; i < 50; i++) {
             Ingredient ingredient = new Ingredient();
             final String quality = ingredient.Quality;
@@ -77,5 +86,7 @@ public class StoreActivity extends AppCompatActivity {
                 }
             });
         }
+
+
     }
 }
