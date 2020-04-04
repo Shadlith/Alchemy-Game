@@ -94,7 +94,7 @@ public class LocationComponentActivity extends AppCompatActivity implements
                     @Override public void onStyleLoaded(@NonNull Style style) {
                         enableLocationComponent(style);
 
-                        if (db.getLocations().size() > 0) {
+                        if (db.getLocations().size() < 0) {
                             points = new ArrayList<>(db.getLocations().values());
                         } else {
                             points = lg.GenerateLocations(5, callback.getLocation());

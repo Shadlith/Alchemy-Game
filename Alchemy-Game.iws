@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f1083ca6-6519-4715-a3fe-64831357b791" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Alchemy-Game.iws" beforeDir="false" afterPath="$PROJECT_DIR$/Alchemy-Game.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/LocationComponentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/AlchemyGame/app/src/main/java/com/example/alchemygame/LocationComponentActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585955851952</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added crafting functionality">
+      <created>1585956155730</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585956155730</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,10 +354,10 @@
     </state>
     <state x="627" y="226" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1585785948075" />
     <state x="784" y="285" key="AndroidCreateXmlResourceDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585940529243" />
-    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1585955851073">
+    <state x="381" y="8" key="CommitChangelistDialog2" timestamp="1585956155021">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585955851073" />
+    <state x="381" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585956155021" />
     <state x="476" y="10" key="CommitChangelistDialog2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585856796142" />
     <state x="392" y="137" key="DBNavigator.ProjectSettingsDialog" timestamp="1585796144635">
       <screen x="0" y="0" width="1536" height="824" />
@@ -433,10 +441,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="807" y="437" key="VCS.ChangelistChooser/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585940565515" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1585955831316">
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1585958220262">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585955831316" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585958220262" />
     <state x="451" y="184" key="Vcs.Push.Dialog.v2/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585857212032" />
     <state x="93" y="93" width="1350" height="638" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1583517107831">
       <screen x="0" y="0" width="1536" height="824" />
@@ -451,10 +459,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="444" y="126" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1585787308940" />
-    <state x="671" y="312" key="git4idea.merge.GitPullDialog" timestamp="1585940382305">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="537" y="247" key="git4idea.merge.GitPullDialog" timestamp="1585956162043">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="537" y="247" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1585877399935" />
+    <state x="537" y="247" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1585956162043" />
     <state x="671" y="312" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585940382305" />
     <state x="2457" y="249" key="git4idea.merge.GitPullDialog/1920.0.1536.832/0.0.1920.1040@1920.0.1536.832" timestamp="1585928779242" />
     <state x="728" y="385" key="git4idea.rebase.GitRebaseDialog" timestamp="1585856853235">
