@@ -2,20 +2,28 @@ package com.example.alchemygame.ui.Inventory;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.alchemygame.InventoryActivity;
+import com.example.alchemygame.Model.Database;
 import com.example.alchemygame.Model.IngredientItem;
 import com.example.alchemygame.R;
 import com.example.alchemygame.ui.Inventory.IngredientItemFragment.OnListFragmentInteractionListener;
+import com.example.alchemygame.ui.Inventory.ItemTypes.Cash;
 import com.example.alchemygame.ui.Inventory.dummy.DummyContent.DummyItem;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mapbox.mapboxsdk.Mapbox.getApplicationContext;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
@@ -26,6 +34,8 @@ public class MyIngredientItemRecyclerViewAdapter extends RecyclerView.Adapter<My
 
     private final ArrayList<IngredientItem> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private int tempID;
+    private Cash money;
 
     public MyIngredientItemRecyclerViewAdapter(ArrayList<IngredientItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -45,15 +55,15 @@ public class MyIngredientItemRecyclerViewAdapter extends RecyclerView.Adapter<My
         holder.mType.setText("" + mValues.get(position).getType());
         holder.mValue.setText("" +mValues.get(position).getValue());
         holder.mQuality.setText("" + mValues.get(position).getQuality());
+        final int x = position;
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
+
+        holder.sellIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    //mListener.onListFragmentInteraction(holder.mItem);
-                }
+                tempID = holder.mItem.getIDValue();
+                notifyItemRemoved(x);
+                holder.db.deleteIngredient(tempID);
             }
         });
     }
@@ -69,13 +79,17 @@ public class MyIngredientItemRecyclerViewAdapter extends RecyclerView.Adapter<My
         public final TextView mType;
         public final TextView mValue;
         public IngredientItem mItem;
+        public Button sellIngredientButton;
+        private Database db;
 
         public ViewHolder(View view) {
             super(view);
+            db = new Database(getApplicationContext());
             mView = view;
             mType = view.findViewById(R.id.item_type);
             mQuality = view.findViewById(R.id.item_quality);
             mValue = view.findViewById(R.id.item_value);
+            sellIngredientButton = view.findViewById(R.id.sell_button);
         }
 
         @Override
